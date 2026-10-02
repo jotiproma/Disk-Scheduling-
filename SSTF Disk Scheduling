@@ -1,0 +1,16 @@
+request = [0, 13, 41, 50, 63, 89, 100]
+
+head = 46
+
+total = 0
+
+print("Seek Sequence:", head, end=" ->")
+
+while request:
+    nearest = min(request, key=lambda x: abs(x - head))
+    total += abs(nearest - head)
+    head = nearest
+    request.remove(nearest)
+    print(head, end=" ->")
+
+print("\nTotal Seek Time:", total)
